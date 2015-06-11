@@ -12,8 +12,6 @@ set autoread
 set encoding=utf-8
 set scrolloff=10
 
-syntax enable
-
 set nobackup
 set nowb
 set noswapfile
@@ -30,6 +28,8 @@ Plugin 'gmarik/vundle'
 
 " My Plugins here:
 "
+Plugin 'slim-template/vim-slim'
+
 " original repos on github
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/vim-easymotion'
@@ -38,7 +38,6 @@ Plugin 'tpope/vim-rails.git'
 
 "vim-coffee-script
 Plugin 'kchmck/vim-coffee-script'
-Plugin 'slim-template/vim-slim'
 
 " vim-scripts repos
 Plugin 'L9'
@@ -49,6 +48,15 @@ map <C-t> :NERDTreeToggle<CR>
 "CtrlP
 Plugin 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ --ignore "vender/*"
+      \ --ignore "public/*"
+      \ --ignore "db/*"
+      \ --ignore "bin/*"
+      \ -g ""'
 "SnipMate
 Plugin 'msanders/snipmate.vim'
 "autocomplete
@@ -61,8 +69,17 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'rking/ag.vim'
 "colorscheme codeschool
 Plugin 'kana/vim-fakeclip'
+Plugin 'airblade/vim-gitgutter'
+
+" Plugin 'majutsushi/tagbar'
+" "config for tagbar
+" let g:tagbar_width=35
+" let g:tagbar_autofocus=1
+" nmap <F8> :TagbarToggle<CR>
 
 call vundle#end()
+
+syntax enable
 filetype plugin indent on     " required!
 
 "
