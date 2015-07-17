@@ -1,8 +1,10 @@
 set nocompatible               " be iMproved
+set clipboard=unnamed
 filetype off                   " required!
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+set ruler
 set number
 set smartindent
 set tabstop=2
@@ -11,16 +13,22 @@ set expandtab
 set autoread
 set encoding=utf-8
 set scrolloff=10
+set mouse=a
 
 set nobackup
 set nowb
 set noswapfile
 " set mouse=a
 
-let g:NERDTreeWinPos = "right"
+" let g:NERDTreeWinPos = "right"
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
+
+" Highlight current line
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+set cursorline cursorcolumn
 
 " let Vundle manage Vundle
 " required! 
@@ -69,13 +77,13 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'rking/ag.vim'
 "colorscheme codeschool
 Plugin 'kana/vim-fakeclip'
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'airblade/vim-gitgutter'
 
-" Plugin 'majutsushi/tagbar'
-" "config for tagbar
-" let g:tagbar_width=35
-" let g:tagbar_autofocus=1
-" nmap <F8> :TagbarToggle<CR>
+Plugin 'majutsushi/tagbar'
+" config for tagbar
+let g:tagbar_width=35
+let g:tagbar_autofocus=1
+nmap <F8> :TagbarToggle<CR>
 
 call vundle#end()
 
