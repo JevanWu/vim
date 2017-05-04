@@ -20,6 +20,13 @@ set nowb
 set noswapfile
 " set mouse=a
 
+" trime white space in the end of lines
+function! TrimWhiteSpace()
+  %s/\s\+$//e
+endfunction
+autocmd BufWritePre     * :call TrimWhiteSpace()
+
+
 " let g:NERDTreeWinPos = "right"
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
@@ -27,13 +34,31 @@ set go-=L " Removes left hand scroll bar
 
 colorscheme onedark
 
+"leader and mapping
+let mapleader = ";"
+let g:ctrlp_max_files=0
+let g:ctrlp_map = '<c-p>'
+" let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+"       \ --ignore .git
+"       \ --ignore .DS_Store
+"       \ --ignore "**/*.pyc"
+"       \ --ignore "vender/*"
+"       \ --ignore "public/*"
+"       \ --ignore "db/*"
+"       \ --ignore "bin/*"
+"       \ -g ""'
+
+"noremap <leader>w <Esc>:w<CR>
+"noremap <leader>q <Esc>:q<CR>
+"inoremap <leader>n <Esc>
+
 " Highlight current line
 " au WinLeave * set nocursorline nocursorcolumn
 " au WinEnter * set cursorline cursorcolumn
 " set cursorline cursorcolumn
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Plugin 'gmarik/vundle'
 
 " My Plugins here:
@@ -58,23 +83,16 @@ map <C-t> :NERDTreeToggle<CR>
 
 "CtrlP
 Plugin 'kien/ctrlp.vim'
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
-      \ --ignore .git
-      \ --ignore .DS_Store
-      \ --ignore "**/*.pyc"
-      \ --ignore "vender/*"
-      \ --ignore "public/*"
-      \ --ignore "db/*"
-      \ --ignore "bin/*"
-      \ -g ""'
+
 "SnipMate
 Plugin 'msanders/snipmate.vim'
+
 "autocomplete
-" Plugin "Shougo/neocomplchache.vim"
+Plugin 'Valloric/YouCompleteMe'
+
 "tcomment
 Plugin 'tomtom/tcomment_vim'
-"codeschool 
+"codeschool
 " Plugin "29decibel/codeschool-vim-theme"
 "the-silver-search
 Plugin 'rking/ag.vim'
@@ -89,6 +107,11 @@ Plugin 'tpope/vim-surround'
 
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+
+" auto complete close pairs
+Plugin 'auto-pairs-gentle'
+let g:AutoPairsUseInsertedCount = 1
+
 let g:airline#extensions#tabline#enabled = 1
 
 let g:tagbar_width=35
