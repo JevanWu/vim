@@ -38,6 +38,7 @@ colorscheme onedark
 let mapleader = ";"
 let g:ctrlp_max_files=0
 let g:ctrlp_map = '<c-p>'
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 " let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
 "       \ --ignore .git
 "       \ --ignore .DS_Store
@@ -110,6 +111,27 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " auto complete close pairs
 Plugin 'auto-pairs-gentle'
+
+Plugin 'endwise.vim'
+
+Plugin 'janko-m/vim-test'
+
+
+Plugin 'Shougo/unite.vim'
+Plugin 'devjoe/vim-codequery'
+
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> t<C-n> :TestNearest<CR>
+" t Ctrl+n
+nmap <silent> t<C-f> :TestFile<CR>
+" t Ctrl+f
+" nmap <silent> t<C-s> :TestSuite<CR>
+" t Ctrl+s
+" nmap <silent> t<C-l> :TestLast<CR>
+" t Ctrl+l
+" nmap <silent> t<C-g> :TestVisit<CR>
+" t Ctrl+g
+
 let g:AutoPairsUseInsertedCount = 1
 
 let g:airline#extensions#tabline#enabled = 1
