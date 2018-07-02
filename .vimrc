@@ -25,14 +25,12 @@ function! TrimWhiteSpace()
   %s/\s\+$//e
 endfunction
 autocmd BufWritePre     * :call TrimWhiteSpace()
-
+colorscheme onedark
 
 " let g:NERDTreeWinPos = "right"
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar
 set go-=L " Removes left hand scroll bar
-
-colorscheme onedark
 
 "leader and mapping
 let mapleader = ";"
@@ -89,7 +87,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'msanders/snipmate.vim'
 
 "autocomplete
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 "tcomment
 Plugin 'tomtom/tcomment_vim'
@@ -120,6 +118,11 @@ Plugin 'janko-m/vim-test'
 Plugin 'Shougo/unite.vim'
 Plugin 'devjoe/vim-codequery'
 
+Plugin 'dyng/ctrlsf.vim'
+vmap <C-f> <Plug>CtrlSFVwordExec
+
+vmap <C-y> "*y
+
 " these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
 nmap <silent> t<C-n> :TestNearest<CR>
 " t Ctrl+n
@@ -145,7 +148,6 @@ call vundle#end()
 syntax enable
 filetype plugin indent on     " required!
 
-
 "
 " Brief help
 " :PluginList          - list configured bundles
@@ -154,4 +156,3 @@ filetype plugin indent on     " required!
 " :PluginClean(!)      - confirm(or auto-approve) removal of unused bundles
 "
 " see :h vundle for more details or wiki for FAQ
-
